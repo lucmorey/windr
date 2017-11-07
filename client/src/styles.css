@@ -1,0 +1,16 @@
+body {
+	padding: 20px;
+}
+
+a, button {
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.NavBar {
+	margin-bottom: 20px
+}
+
+.home {
+    text-align: center;
+}

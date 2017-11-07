@@ -3,9 +3,9 @@ import React from 'react'
 const Home = (props) => {
 	return (
 		<div className='home'>
-			<h1>Windr</h1>
+			<h1 class="title">Windr</h1>
             <p>Local Wind Report</p>
-            <img src="images/wind-god.png" alt=""/>
+            <img src="images/wind-arrow-north.png" alt=""/>
 		</div>
 	)
 }

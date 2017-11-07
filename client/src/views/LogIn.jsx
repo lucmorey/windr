@@ -31,6 +31,7 @@ class LogIn extends React.Component {
 		return (
 			<div className='LogIn'>
 				<h1>Log In</h1>
+                <img src="images/sun.png" height="250px" alt=""/>
 				<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 					<input type="text" placeholder="Email" name="email" value={email} />
 					<input type="password" placeholder="Password" name="password" value={password} />

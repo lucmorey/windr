@@ -14,3 +14,25 @@ a, button {
 .home {
     text-align: center;
 }
+
+.title {
+    font-style: italic;
+}
+
+.navbar-brand {
+    font-style: italic;
+}
+
+.locations {
+    text-align: center;
+}
+
+.LogIn {
+    text-align: center;
+    font-style: italic;
+}
+
+.signUp {
+    font-style: italic;
+    display: block;
+}

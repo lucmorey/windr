@@ -1,5 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
+import clientAuth from '../clientAuth'
+
 
 // turn this into a Dashboard class component
 // where state contains { forecast: null }
@@ -17,15 +19,40 @@ function getForecast(credentials) {
 		})
 }*/
 
-const Dashboard = (props) => {
+
+// const Dashboard = (props) => {
 	
-	return (
+// 	return (
+// 		<div className='dashboard'>
+// 			<h1 class="title">Your Windr Location</h1>
+// 			<img src="images/sunAndClouds.png" height="250px" alt="Locations" />
+// 			<img src="images/wind-arrow-north.png" alt=""/>
+// 		</div>
+// 	)
+// }
+
+
+class Dashboard extends React.Component {
+	state = {
+		forecast: {windBearing: null}
+	}
+	componentDidMount() {
+		return clientAuth.getForecast().then(res => {
+			console.log(res.data.forecast.windBearing)
+			this.setState( {forecast: {windBearing: res.data.forecast.windBearing}})
+			return res.data.forecast
+		})
+	}
+	render(){
+		return (
 		<div className='dashboard'>
-			<h1 class="title">Your Windr Location</h1>
-			<img src="images/sunAndClouds.png" height="250px" alt="Locations" />
-			<img src="images/wind-arrow-north.png" alt=""/>
+			<h1 class="title">Local Wind Report</h1>
+			
+			<img style={{   transform: 'rotate('+this.state.forecast.windBearing+'deg)'}} src="images/wind-arrow-north.png" alt=""/>
 		</div>
 	)
+
+	}
 }
 
 export default Dashboard

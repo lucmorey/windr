@@ -6,7 +6,7 @@ import NavBar from './NavBar'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
-import Locations from './views/Locations'
+import Dashboard from './views/Dashboard'
 import Home from './views/Home'
 
 class App extends React.Component {
@@ -47,9 +47,9 @@ class App extends React.Component {
 						return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
 
-					<Route path="/locations" render={() => {
+					<Route path="/dashboard" render={() => {
 						return currentUser
-							? <Locations />
+							? <Dashboard />
 							: <Redirect to="/login" />
 					}} />
 

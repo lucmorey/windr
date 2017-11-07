@@ -32,6 +32,13 @@ function logIn(credentials) {
 		})
 }
 
+function getForecast(credentials) {
+	return clientAuth({ method: 'get', url: '/api/users/dashboard' })
+		.then(res => {
+			return res.data.forecast
+		})
+}
+
 // logIn and signUp functions could be combined into one since the only difference is the url we're sending a request to..
 function signUp(userInfo) {
 	return clientAuth({ method: 'post', url: '/api/users', data: userInfo})
@@ -57,5 +64,6 @@ export default {
 	getCurrentUser,
 	logIn,
 	signUp,
-	logOut
+	logOut,
+	getForecast
 }

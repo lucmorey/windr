@@ -1,6 +1,7 @@
 const User = require('../models/User.js')
 const signToken = require('../serverAuth.js').signToken
 const geocoder = require('geocoder')
+const request = require('request')
 
 module.exports = {
     //list all users
@@ -11,11 +12,22 @@ module.exports = {
     },
     //get one user
     show: (req, res) => {
-        console.log("Current User:")
-        console.log(req.user)
-        //geocoder
-        User.findById(req.params.id, (err, user) => {
-            res.json(user)
+		// 1. find user
+        User.findById(req.user._id, (err, user) => {
+			// 2. using user.location, get coordinates with geocoder
+			geocoder.geocode(user.location, (err, data) => {
+				// 3. combine user info with coordinates, call it "userInfo"
+				const userInfo = {...user.toObject(), coordinates: data.results[0].geometry.location}
+				// 4. build the api url out of api key and coordinates:
+				const apiURL = `https://api.darksky.net/forecast/${process.env.DARKSKY}/${userInfo.coordinates.lat},${userInfo.coordinates.lng}`
+				// 5. send request to apiURL
+				request(apiURL, (err, response, body) => {
+					// 6. when we get response from darksky, place the daily forecast in our userInfo object
+					Object.assign(userInfo, {forecast: JSON.parse(body).daily.data[0] })
+					// 7. send back all user info:
+					res.json(userInfo)
+				})
+			})
         })
     },
 

@@ -23,7 +23,7 @@ a, button {
     font-style: italic;
 }
 
-.locations {
+.Dashboard {
     text-align: center;
 }
 
@@ -34,5 +34,4 @@ a, button {
 
 .signUp {
     font-style: italic;
-    display: block;
 }

@@ -10,12 +10,12 @@ const NavBar = (props) => {
 			{props.currentUser
 				? (
 					<span>
-						<Link to="/locations">Locations</Link>
+						<Link to="/dashboard">Dashboard</Link>
 						<Link to="/logout">Log Out</Link>
 					</span>
 				)
 				: (
-					<span>
+					<span className="nav-item">              
 						<Link to="/login">Log In</Link>
 						<Link to="/signup">Sign Up</Link>
 					</span>
@@ -26,5 +26,6 @@ const NavBar = (props) => {
 }
 
 export default NavBar
+
 
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import clientAuth from '../clientAuth'
+import { Link } from 'react-router-dom'
 
 class LogIn extends React.Component {
 	state = {
@@ -36,10 +37,11 @@ class LogIn extends React.Component {
 				<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 					<input type="text" placeholder="Email" name="email" value={email} />
 					<input type="password" placeholder="Password" name="password" value={password} />
+					<hr/>
 					<button>Log In</button>
 				</form>				
 				<h4>or</h4>
-				<h4>Sign-Up</h4>
+				<h4><Link to="/SignUp">Sign-Up</Link></h4>
 			</div>
 		)
 	}

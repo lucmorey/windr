@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
 	componentDidMount() {
 		return clientAuth.getForecast().then(res => {
 			console.log(res.data.forecast.windBearing)
-			this.setState( {forecast: {windBearing: res.data.forecast.windBearing}})
+			this.setState( {forecast: {windBearing: res.data.forecast.windBearing + 180}})
 			return res.data.forecast
 		})
 	}
@@ -47,8 +47,12 @@ class Dashboard extends React.Component {
 		return (
 		<div className='dashboard'>
 			<h1 class="title">Local Wind Report</h1>
-			
+			<h3>City, ST</h3>
+			<h3>Temp</h3>
+			<h1 class="compass">N</h1>
 			<img style={{   transform: 'rotate('+this.state.forecast.windBearing+'deg)'}} src="images/wind-arrow-north.png" alt=""/>
+			<h1 class="compass">S</h1>
+
 		</div>
 	)
 

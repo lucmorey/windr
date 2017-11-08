@@ -8,6 +8,8 @@ import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
 import Dashboard from './views/Dashboard'
 import Home from './views/Home'
+import Edit from './views/Edit'
+import Delete from './views/Delete'
 
 class App extends React.Component {
 	state = { currentUser: null }
@@ -53,6 +55,17 @@ class App extends React.Component {
 							: <Redirect to="/login" />
 					}} />
 
+					<Route path="/edit" render={(props) => {
+						return currentUser
+							? <Edit {...props} currentUser={currentUser} onUpdateSuccess={this.onLoginSuccess.bind(this)}/>
+							: <Redirect to="/login" />
+					}} />
+
+					<Route path="/delete" render={(props) => {
+						return currentUser
+							? <Delete currentUser={currentUser} onDeleteSuccess={this.logOut.bind(this)} />
+							: <Redirect to="/login" />
+					}} />
 					<Route path="/" component={Home} />
 
 				</Switch>

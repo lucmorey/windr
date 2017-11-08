@@ -17,12 +17,17 @@ a, button {
 
 .title {
     font-style: italic;
+    text-align: center;
 }
 
 .navbar-brand {
+    
     font-style: italic;
 }
-
+.compass {
+    text-align: center;
+    color: red;
+}
 .Dashboard {
     text-align: center;
 }

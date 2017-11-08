@@ -21,7 +21,7 @@ class LogIn extends React.Component {
 			this.setState({ fields: { email: '', password: '' } })
 			if(user) {
 				this.props.onLoginSuccess(user)
-				this.props.history.push('/')
+				this.props.history.push('/dashboard')
 			}
 		})
 	}
@@ -30,13 +30,16 @@ class LogIn extends React.Component {
 		const { email, password } = this.state.fields
 		return (
 			<div className='LogIn'>
-				<h1>Log In</h1>
-                <img src="images/sun.png" height="250px" alt=""/>
+				<h1>Windr</h1>
+				<h3>Local Wind Report</h3>
+                <img src="images/wind-god.png" height="250px" alt=""/>
 				<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 					<input type="text" placeholder="Email" name="email" value={email} />
 					<input type="password" placeholder="Password" name="password" value={password} />
 					<button>Log In</button>
-				</form>
+				</form>				
+				<h4>or</h4>
+				<h4>Sign-Up</h4>
 			</div>
 		)
 	}

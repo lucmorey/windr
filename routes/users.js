@@ -16,6 +16,7 @@ usersRouter.use(verifyToken)
 usersRouter.get('/dashboard', usersCtrl.show)
 
 usersRouter.route('/:id')
+    .get(usersCtrl.show)
 	.patch(usersCtrl.update)
 	.delete(usersCtrl.destroy)
 

@@ -51,26 +51,27 @@ class Dashboard extends React.Component {
 		  .then(data => data.forecast)
 		  .then(forecast => {
 			  console.log(forecast.currently.icon)
-			  this.setState({ ...forecast.currently })
+			  this.setState({ ...forecast })
 		  })
 	}
 	render(){
-		const { windBearing, location, windGust, temperature, icon} = this.state
-		const { timezone } = this.state
-		// console.log(this.state)
+		const { windBearing, location, windGust, temperature, icon} = this.state.currently
+		const timezone = this.state.timezone
 		return (
 		<div className='dashboard'>
 			<div>
-				<img className="santaAna" src="images/wind-god.png"/>
 			</div>
-			<h1>{timezone}</h1>
+			<img className="santaAna" src={`images/${icon}.png`} alt=""/>
+			<h3>{icon}</h3>
 			<h3>WindGust: {windGust} | | Temp: {temperature}</h3>
-			<h3>Conditions: {icon} </h3>						
+			<h4>{timezone}</h4>	
 			<h1 className="compass">N</h1>
+								
 			<img style={{   transform: 'rotate('+windBearing+'deg)'}} src="images/wind-arrow-north.png" alt=""/>
+			
 			<h1 className="compass">S</h1>
 			<br/>
-			<h6><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h6>
+			<h6 class="italic"><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h6>
 
 		</div>
 	)

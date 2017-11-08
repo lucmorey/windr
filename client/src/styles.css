@@ -46,3 +46,7 @@ a, button {
 .santaAna {
     width: 200px;
 }
+
+.italic {
+   font-style: italic; 
+}

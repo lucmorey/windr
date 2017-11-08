@@ -42,6 +42,8 @@ class LogIn extends React.Component {
 				</form>				
 				<h4>or</h4>
 				<h4><Link to="/SignUp">Sign-Up</Link></h4>
+				<br/>
+				<h6><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h6>
 			</div>
 		)
 	}

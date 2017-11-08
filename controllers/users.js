@@ -23,7 +23,12 @@ module.exports = {
 				// 5. send request to apiURL
 				request(apiURL, (err, response, body) => {
 					// 6. when we get response from darksky, place the daily forecast in our userInfo object
-					Object.assign(userInfo, {forecast: JSON.parse(body).daily.data[0] })
+					const { currently, timezone } = JSON.parse(body)
+					const forecast = {
+						currently,
+						timezone
+					}
+					Object.assign(userInfo, { forecast })
 					// 7. send back all user info:
 					res.json(userInfo)
 				})

@@ -1,6 +1,7 @@
 import React from 'react'
-import Axios from 'axios'
 import clientAuth from '../clientAuth'
+import { Link } from 'react-router-dom'
+
 
 
 // turn this into a Dashboard class component
@@ -34,24 +35,42 @@ function getForecast(credentials) {
 
 class Dashboard extends React.Component {
 	state = {
-		forecast: {windBearing: null}
+		currently: {
+			windBearing: 0,
+			location: '',
+			windGust: 0,
+			temperature: 0,
+			icon: ''
+		},
+		timezone: ''
+
 	}
 	componentDidMount() {
-		return clientAuth.getForecast().then(res => {
-			console.log(res.data.forecast.windBearing)
-			this.setState( {forecast: {windBearing: res.data.forecast.windBearing + 180}})
-			return res.data.forecast
-		})
+		clientAuth.getForecast()
+		  .then(res => res.data)
+		  .then(data => data.forecast)
+		  .then(forecast => {
+			  console.log(forecast.currently.icon)
+			  this.setState({ ...forecast.currently })
+		  })
 	}
 	render(){
+		const { windBearing, location, windGust, temperature, icon} = this.state
+		const { timezone } = this.state
+		// console.log(this.state)
 		return (
 		<div className='dashboard'>
-			<h1 class="title">Local Wind Report</h1>
-			<h3>City, ST</h3>
-			<h3>Temp</h3>
-			<h1 class="compass">N</h1>
-			<img style={{   transform: 'rotate('+this.state.forecast.windBearing+'deg)'}} src="images/wind-arrow-north.png" alt=""/>
-			<h1 class="compass">S</h1>
+			<div>
+				<img className="santaAna" src="images/wind-god.png"/>
+			</div>
+			<h1>{timezone}</h1>
+			<h3>WindGust: {windGust} | | Temp: {temperature}</h3>
+			<h3>Conditions: {icon} </h3>						
+			<h1 className="compass">N</h1>
+			<img style={{   transform: 'rotate('+windBearing+'deg)'}} src="images/wind-arrow-north.png" alt=""/>
+			<h1 className="compass">S</h1>
+			<br/>
+			<h6><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h6>
 
 		</div>
 	)

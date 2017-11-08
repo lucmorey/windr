@@ -26,10 +26,12 @@ a, button {
 }
 .compass {
     text-align: center;
-    color: red;
+    color: blue;
+
 }
-.Dashboard {
+.dashboard {
     text-align: center;
+    display: inline-block;
 }
 
 .LogIn {
@@ -39,4 +41,8 @@ a, button {
 
 .signUp {
     font-style: italic;
+}
+
+.santaAna {
+    width: 200px;
 }

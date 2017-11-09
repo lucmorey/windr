@@ -8,8 +8,11 @@ a, button {
 	cursor: pointer;
 }
 
-.NavBar {
-	margin-bottom: 20px
+.navbar {
+    
+    margin-bottom: 20px;
+    font-family: 'Courgette', sans-serif;
+      
 }
 
 .home {
@@ -22,9 +25,10 @@ a, button {
 }
 
 .navbar-brand {
-    font-style: italic;
+    font-size: 24px;
 }
 .dashboard {
+    font-family: 'Courgette';
     text-align: center;
     display: inline-block;
 }
@@ -41,7 +45,7 @@ a, button {
 }
 .LogIn {
     text-align: center;
-    font-style: italic;
+    font-family: 'Courgette';
 }
 
 .signUp {

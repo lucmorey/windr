@@ -38,7 +38,7 @@ class Dashboard extends React.Component {
 		return (
 		<div className='dashboard'>
 			<h1 className="italic">Current Conditions</h1>		
-			{windBearing > 360 && windBearing < 540
+			{windBearing < 180 
 				? (
 					<div>
 						<h3 className="alertRed">Santa Ana Winds in effect</h3>
@@ -50,10 +50,15 @@ class Dashboard extends React.Component {
 			}
 		
 			<div className="weather">
-				<h1>WindGust: {Math.floor(windGust)} mph💨 {Math.floor(temperature)}°</h1>
+				<div className="left">
+					<h1>{Math.floor(temperature)}°</h1>
+					<h1>WindGust: {Math.floor(windGust)} mph</h1>
+				</div>
+				<div className="right">
 				<img className="santaAna" src={`images/${icon}.png`} alt=""/>
 				<h3>{icon}</h3>
 				<h4>{this.state.user.location}</h4>
+				</div>
 			</div>
 
 			<div className="compass">	

@@ -37,18 +37,20 @@ class Dashboard extends React.Component {
 		const timezone = this.state.timezone
 		return (
 		<div className='dashboard'>
-			{windBearing < 360
+			<h1 className="italic">Current Conditions</h1>		
+			{windBearing > 360 && windBearing < 540
 				? (
 					<div>
-						<h3 className="alert">Santa Ana Winds in effect</h3>
+						<h3 className="alertRed">Santa Ana Winds in effect</h3>
 					</div>
 				)
-				: null
+				: <div>
+						<h3 className="alertBlue">Ocean Breeze in effect</h3>
+					</div>
 			}
 		
 			<div className="weather">
-				<h1 className="italic">Windr</h1>		
-				<h3>WindGust: {Math.floor(windGust)} mph | | {Math.floor(temperature)} degrees</h3>
+				<h1>WindGust: {Math.floor(windGust)} mph💨 {Math.floor(temperature)}°</h1>
 				<img className="santaAna" src={`images/${icon}.png`} alt=""/>
 				<h3>{icon}</h3>
 				<h4>{this.state.user.location}</h4>

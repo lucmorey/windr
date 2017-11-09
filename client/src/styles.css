@@ -60,6 +60,9 @@ a, button {
 .arrow {
     transition: all 3s;
 }
-.alert {
+.alertRed {
     color: red;
+}
+.alertBlue {
+    color: blue;
 }

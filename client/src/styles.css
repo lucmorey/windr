@@ -1,5 +1,6 @@
 body {
-	padding: 20px;
+    padding: 20px;
+    background-color: seashell;
 }
 
 
@@ -7,11 +8,16 @@ a, button {
 	margin: 0 5px;
 	cursor: pointer;
 }
+.login-btn {
+    border-radius: 25px;
+    margin: 10px 0 0 10px;
+}
 
 .navbar {
-    
+    color: seashell;
     margin-bottom: 20px;
     font-family: 'Courgette', sans-serif;
+    border-radius: 25px;
       
 }
 
@@ -26,7 +32,9 @@ a, button {
 
 .navbar-brand {
     font-size: 24px;
+    
 }
+
 .dashboard {
     font-family: 'Courgette';
     text-align: center;
@@ -37,7 +45,7 @@ a, button {
     text-align: center;
     color: blue;
     display: inline-block;
-    
+     
 }
 
 .weather {
@@ -49,12 +57,20 @@ a, button {
 }
 
 .signUp {
-    font-style: italic;
+    font-family: 'Courgette';
+    
 }
 
 .santaAna {
     
-    width: 200px;
+    width: 150px;
+}
+
+#temperature {
+   font-family: 'Courgette';
+  /* color: rgba(202, 170, 238, 0.653);
+  */
+   
 }
 
 .italic {
@@ -63,10 +79,22 @@ a, button {
 
 .arrow {
     transition: all 3s;
+    
 }
 .alertRed {
     color: red;
 }
 .alertBlue {
     color: blue;
+}
+.nav-links {
+    font-size: 24px;
+    float: right;
+    margin: 8px 8px 0 0;
+}
+
+.edit-profile {
+    text-align: center;
+    display: block;
+    font-family: 'Courgette', 'sans';
 }

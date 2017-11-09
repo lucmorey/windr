@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const NavBar = (props) => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-inverse bg-inverse">
+		<nav className="navbar navbar-expand-lg navbar-inverse ">
             <Link className="navbar-brand" to="/dashboard">Windr</Link>
             
 			
@@ -11,10 +11,11 @@ const NavBar = (props) => {
 				? (
 					<span>
 						{/* <Link to="/dashboard">Dashboard</Link> */}
+						<div className="nav-links">
 						<Link to="/Edit">Account</Link>
 						<Link to="/logout">LogOut</Link>
-						<Link to="/Delete">Delete_Acct</Link>
 
+						</div>
 					</span>
 				)
 				: (

@@ -49,22 +49,24 @@ class Dashboard extends React.Component {
 					</div>
 			}
 		
+
+			<div className="compass">	
+				<h3>N</h3>			
+				<img className="arrow" style={{   transform: 'rotate('+ (windBearing + 180) +'deg)'}} src="images/wind-arrow-north.png" height="200px" alt=""/>		
+				<h3>S</h3>
+			</div>
 			<div className="weather">
 				<div className="left">
-					<h1>{Math.floor(temperature)}°</h1>
-					<h1>WindGust: {Math.floor(windGust)} mph</h1>
+					<h2>WindGust: {Math.floor(windGust)} mph</h2>
 				</div>
 				<div className="right">
 				<img className="santaAna" src={`images/${icon}.png`} alt=""/>
+					<div class="weather-report">
+					<h2 id="temperature">{Math.floor(temperature)}°</h2>
 				<h3>{icon}</h3>
 				<h4>{this.state.user.location}</h4>
 				</div>
-			</div>
-
-			<div className="compass">	
-				<h1>N</h1>			
-				<img className="arrow" style={{   transform: 'rotate('+ (windBearing + 180) +'deg)'}} src="images/wind-arrow-north.png" alt=""/>		
-				<h1>S</h1>
+				</div>
 			</div>
 
 			<br/>

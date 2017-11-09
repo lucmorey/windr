@@ -34,10 +34,10 @@ class SignUp extends React.Component {
 				<h1>Sign Up</h1>
 				<img src="images/cloud.png" height="200px" alt=""/>
 				<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-					<input type="text" placeholder="Name" name="name" value={name} />
-					<input type="text" placeholder="Email" name="email" value={email} />
-					<input type="password" placeholder="Password" name="password" value={password} />
-					<input type="location" placeholder="location" name="location" value={location} />
+				<div>Name</div><input type="text" placeholder="Name" name="name" value={name} />
+				<div>Email</div><input type="text" placeholder="Email" name="email" value={email} />
+				<div>Password</div><input type="password" placeholder="Password" name="password" value={password} />
+				<div>Location</div><input type="location" placeholder="City, ST" name="location" value={location} />
 
 
 					<button>Log In</button>

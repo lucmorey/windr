@@ -37,13 +37,13 @@ class LogIn extends React.Component {
 				<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 					<input type="text" placeholder="Email" name="email" value={email} />
 					<input type="password" placeholder="Password" name="password" value={password} />
-					<hr/>
-					<button>Log In</button>
+					<button className="login-btn">Log In</button>
 				</form>				
 				<h4>or</h4>
-				<h4><Link to="/SignUp">Sign-Up</Link></h4>
-				<br/>
-				<h6><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h6>
+				<h4><Link to="/SignUp">Sign-Up!</Link></h4>
+					<hr/>
+				
+				<h5><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h5>
 			</div>
 		)
 	}

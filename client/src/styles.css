@@ -2,6 +2,7 @@ body {
 	padding: 20px;
 }
 
+
 a, button {
 	margin: 0 5px;
 	cursor: pointer;
@@ -49,4 +50,11 @@ a, button {
 
 .italic {
    font-style: italic; 
+}
+
+.arrow {
+    transition: all 2s;
+}
+.alert {
+    color: red;
 }

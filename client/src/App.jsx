@@ -12,11 +12,7 @@ import Edit from './views/Edit'
 import Delete from './views/Delete'
 
 class App extends React.Component {
-	state = { currentUser: null }
-
-	componentDidMount() {
-		this.setState({ currentUser: clientAuth.getCurrentUser() })
-	}
+	state = { currentUser: clientAuth.getCurrentUser() }
 
 	onLoginSuccess(user) {
 		this.setState({ currentUser: clientAuth.getCurrentUser() })
@@ -51,7 +47,7 @@ class App extends React.Component {
 
 					<Route path="/dashboard" render={() => {
 						return currentUser
-							? <Dashboard />
+							? <Dashboard currentUser={currentUser}/>
 							: <Redirect to="/login" />
 					}} />
 

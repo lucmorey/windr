@@ -3,7 +3,10 @@ import axios from 'axios'
 
 class EditProfile extends React.Component {
 	state = {
-		fields: { name: '', email: '', password: '', location: ''}
+		fields: { name: this.props.currentUser.name,
+				 email: this.props.currentUser.email,
+				password: '',
+				location: ''}
 	}
 
 	onInputChange(evt) {

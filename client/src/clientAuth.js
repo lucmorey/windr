@@ -32,6 +32,11 @@ function logIn(credentials) {
 		})
 }
 
+function getUser(id) {
+	return clientAuth({ method: 'get', url: `/api/users/${id}` })
+
+}
+
 function getForecast(credentials) {
 	return clientAuth({ method: 'get', url: '/api/users/dashboard' })
 }
@@ -62,5 +67,6 @@ export default {
 	logIn,
 	signUp,
 	logOut,
-	getForecast
+	getForecast,
+	getUser
 }

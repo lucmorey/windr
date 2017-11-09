@@ -2,37 +2,6 @@ import React from 'react'
 import clientAuth from '../clientAuth'
 import { Link } from 'react-router-dom'
 
-
-
-// turn this into a Dashboard class component
-// where state contains { forecast: null }
-// in a componentDidMount() method, use the clientAuth file to send a request to
-// /api/users/dashboard
-// when you get the response back, update state to include the forecast data
-// render accordingly
-
-
-/*
-function getForecast(credentials) {
-	return clientAuth({ method: 'get', url: '/api/users/dashboard' })
-		.then(res => {
-			return res.data.forecast
-		})
-}*/
-
-
-// const Dashboard = (props) => {
-	
-// 	return (
-// 		<div className='dashboard'>
-// 			<h1 class="title">Your Windr Location</h1>
-// 			<img src="images/sunAndClouds.png" height="250px" alt="Locations" />
-// 			<img src="images/wind-arrow-north.png" alt=""/>
-// 		</div>
-// 	)
-// }
-
-
 class Dashboard extends React.Component {
 	state = {
 		currently: {
@@ -42,40 +11,57 @@ class Dashboard extends React.Component {
 			temperature: 0,
 			icon: ''
 		},
-		timezone: ''
+		timezone: '',
+		user: null
 
 	}
+
 	componentDidMount() {
 		clientAuth.getForecast()
 		  .then(res => res.data)
 		  .then(data => data.forecast)
 		  .then(forecast => {
-			  console.log(forecast.currently.icon)
 			  this.setState({ ...forecast })
 		  })
+		  clientAuth.getUser(this.props.currentUser._id) 
+			.then((res) => {
+				 this.setState({user:res.data})
+			})
 	}
 	render(){
+		if (!this.state.user || !this.state.currently){
+			return <h1>Loading Data</h1>
+		}
+		else {
 		const { windBearing, location, windGust, temperature, icon} = this.state.currently
 		const timezone = this.state.timezone
 		return (
 		<div className='dashboard'>
+			{windBearing > 180 && windBearing < 340
+				? (
+					<div>
+						<h1 className="alert">Santa Ana Winds in effect</h1>
+					</div>
+				)
+				: null
+			}
+		
 			<div>
+			<h1 className="compass">N</h1>			
+			<img className="arrow" style={{   transform: 'rotate('+windBearing+'deg)'}} src="images/wind-arrow-north.png" alt=""/>		
+			<h1 className="compass">S</h1>
 			</div>
+			<h3>WindGust: {Math.floor(windGust)} mph | | {Math.floor(temperature)} degrees</h3>
 			<img className="santaAna" src={`images/${icon}.png`} alt=""/>
 			<h3>{icon}</h3>
-			<h3>WindGust: {windGust} | | Temp: {temperature}</h3>
-			<h4>{timezone}</h4>	
-			<h1 className="compass">N</h1>
-								
-			<img style={{   transform: 'rotate('+windBearing+'deg)'}} src="images/wind-arrow-north.png" alt=""/>
-			
-			<h1 className="compass">S</h1>
+			<h4>{this.state.user.location}</h4>	
 			<br/>
-			<h6 class="italic"><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h6>
+			<h6 className="italic"><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h6>
 
+			
 		</div>
 	)
-
+		}
 	}
 }
 

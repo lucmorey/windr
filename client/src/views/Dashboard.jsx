@@ -37,26 +37,31 @@ class Dashboard extends React.Component {
 		const timezone = this.state.timezone
 		return (
 		<div className='dashboard'>
-			{windBearing > 180 && windBearing < 340
+			{windBearing < 360
 				? (
 					<div>
-						<h1 className="alert">Santa Ana Winds in effect</h1>
+						<h3 className="alert">Santa Ana Winds in effect</h3>
 					</div>
 				)
 				: null
 			}
 		
-			<div>
-			<h1 className="compass">N</h1>			
-			<img className="arrow" style={{   transform: 'rotate('+windBearing+'deg)'}} src="images/wind-arrow-north.png" alt=""/>		
-			<h1 className="compass">S</h1>
+			<div className="weather">
+				<h1 className="italic">Windr</h1>		
+				<h3>WindGust: {Math.floor(windGust)} mph | | {Math.floor(temperature)} degrees</h3>
+				<img className="santaAna" src={`images/${icon}.png`} alt=""/>
+				<h3>{icon}</h3>
+				<h4>{this.state.user.location}</h4>
 			</div>
-			<h3>WindGust: {Math.floor(windGust)} mph | | {Math.floor(temperature)} degrees</h3>
-			<img className="santaAna" src={`images/${icon}.png`} alt=""/>
-			<h3>{icon}</h3>
-			<h4>{this.state.user.location}</h4>	
+
+			<div className="compass">	
+				<h1>N</h1>			
+				<img className="arrow" style={{   transform: 'rotate('+ (windBearing + 180) +'deg)'}} src="images/wind-arrow-north.png" alt=""/>		
+				<h1>S</h1>
+			</div>
+
 			<br/>
-			<h6 className="italic"><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h6>
+			<h5 className="italic"><Link to="https://darksky.net/poweredby/">Powered by Dark Sky</Link></h5>
 
 			
 		</div>

@@ -33,8 +33,8 @@ class Dashboard extends React.Component {
 			return <h1>Loading Data</h1>
 		}
 		else {
-		const { windBearing, location, windGust, temperature, icon} = this.state.currently
-		const timezone = this.state.timezone
+		const { windBearing, windGust, temperature, icon} = this.state.currently
+		
 		return (
 		<div className='dashboard'>
 			<h1 className="italic">Current Conditions</h1>		
@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
 				</div>
 				<div className="right">
 				<img className="santaAna" src={`images/${icon}.png`} alt=""/>
-					<div class="weather-report">
+					<div className="weather-report">
 					<h2 id="temperature">{Math.floor(temperature)}°</h2>
 				<h3>{icon}</h3>
 				<h4>{this.state.user.location}</h4>

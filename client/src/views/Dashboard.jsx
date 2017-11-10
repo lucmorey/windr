@@ -59,7 +59,7 @@ class Dashboard extends React.Component {
 			</div>
 			<div className="weather">
 				<div className="left">
-					<h2>WindGust: {Math.floor(windGust)} mph</h2>
+					<h2>WindGusts: {Math.floor(windGust)} mph</h2>
 				</div>
 				<div className="right">
 				<img className="santaAna" src={`images/${icon}.png`} alt=""/>

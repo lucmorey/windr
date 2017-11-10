@@ -37,7 +37,9 @@ class LogIn extends React.Component {
 				<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 					<input type="text" placeholder="Email" name="email" value={email} />
 					<input type="password" placeholder="Password" name="password" value={password} />
+					<div>
 					<button className="login-btn">Log In</button>
+					</div>
 				</form>				
 				<h4>or</h4>
 				<h4><Link to="/SignUp">Sign-Up!</Link></h4>

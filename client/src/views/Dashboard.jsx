@@ -52,7 +52,9 @@ class Dashboard extends React.Component {
 
 			<div className="compass">	
 				<h3>N</h3>			
-				<img className="arrow" style={{   transform: 'rotate('+ (windBearing + 180) +'deg)'}} src="images/wind-arrow-north.png" height="200px" alt=""/>		
+				<div className="needle">
+				<img className="arrow" style={{transform: 'rotate('+ (windBearing + 180) +'deg)'}} src="images/wind-arrow-north.png" height="200px" alt=""/>		
+				</div>
 				<h3>S</h3>
 			</div>
 			<div className="weather">

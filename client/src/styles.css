@@ -98,3 +98,22 @@ a, button {
     display: block;
     font-family: 'Courgette', 'sans';
 }
+
+@keyframes needle-vibrate {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(-5deg);
+    }
+    40% {
+        transform: rotate(0deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+  }
+  
+  .needle {
+     animation: needle-vibrate 2s infinite;
+  }

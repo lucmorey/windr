@@ -17,8 +17,9 @@ Especially hot, dry, and dusty Santa Ana winds are widely believed (in Southern 
 
 The winds carry Coccidioides immitis and Coccidioides posadasii spores into nonendemic areas, a pathogenic fungus that causes Coccidioidomycosis ("Valley Fever"). Symptomatic infection (40 percent of cases) usually presents as an influenza-like illness with fever, cough, headaches, rash, and myalgia (muscle pain). Serious complications include severe pneumonia, lung nodules, and disseminated disease, where the fungus spreads throughout the body. The disseminated form of Coccidioidomycosis can devastate the body, causing skin ulcers, abscesses, bone lesions, severe joint pain, heart inflammation, urinary tract problems, meningitis, and often death.
 
--Wikipedia
+- [Wikipedia](https://en.wikipedia.org/wiki/Santa_Ana_winds)
 
+## Purpose
 
 Santa Ana wind alerts were the main purpose for Windr. However, to make Windr useful in other locations, it has been designed to convey wind-focused weather minimally in an untaylored, mobile friendly way. The alerts taylored to Los Angeles and the Santa Ana Winds are coded in one simple function in the Dashboard.jsx file. It can easily be manipulated to show alerts for unique conditions anywhere.
 
